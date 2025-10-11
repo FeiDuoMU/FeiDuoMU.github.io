@@ -123,7 +123,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://example.com/Hexo/image-20221214011605942-16740580469134.png">
 <meta property="article:published_time" content="2021-08-10T16:00:00.000Z">
-<meta property="article:modified_time" content="2023-09-08T02:18:40.924Z">
+<meta property="article:modified_time" content="2025-10-11T15:54:45.404Z">
 <meta property="article:author" content="羽生绯木">
 <meta property="article:tag" content="学无止境">
 <meta property="article:tag" content="Hexo">
@@ -346,7 +346,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>5.4k</span>
+              <span>5.6k</span>
             </span>
 
         </div>
@@ -446,80 +446,120 @@
 <table>
 <thead>
 <tr>
-<th align="center">选项</th>
-<th>默认值</th>
-<th>描述</th>
+<th>container</th>
+<th>document.querySelector(‘.aplayer’)</th>
+<th>播放器容器元素</th>
 </tr>
 </thead>
 <tbody><tr>
-<td align="center">id</td>
-<td><strong>必须值</strong></td>
-<td>歌曲 id &#x2F; 播放列表 id &#x2F; 相册 id &#x2F; 搜索关键字</td>
+<td>fixed</td>
+<td>false</td>
+<td>开启吸底模式, <a target="_blank" rel="noopener" href="https://aplayer.js.org/#/home?id=fixed-mode">详情</a></td>
 </tr>
 <tr>
-<td align="center">server</td>
-<td><strong>必须值</strong></td>
-<td>音乐平台: <code>netease</code> , <code>tencent</code> , <code>kugou</code> , <code>xiami</code> , <code>baidu</code></td>
+<td>mini</td>
+<td>false</td>
+<td>开启迷你模式, <a target="_blank" rel="noopener" href="https://aplayer.js.org/#/home?id=mini-mode">详情</a></td>
 </tr>
 <tr>
-<td align="center">type</td>
-<td><strong>必须值</strong></td>
-<td><code>song</code> , <code>playlist</code> , <code>album</code> , <code>search</code> , <code>artist</code></td>
+<td>autoplay</td>
+<td>false</td>
+<td>音频自动播放</td>
 </tr>
 <tr>
-<td align="center">fixed</td>
-<td><code>false</code></td>
-<td>开启固定模式</td>
+<td>theme</td>
+<td>‘#b7daff’</td>
+<td>主题色</td>
 </tr>
 <tr>
-<td align="center">mini</td>
-<td><code>false</code></td>
-<td>开启迷你模式</td>
+<td>loop</td>
+<td>‘all’</td>
+<td>音频循环播放, 可选值: ‘all’, ‘one’, ‘none’</td>
 </tr>
 <tr>
-<td align="center">loop</td>
-<td><code>all</code></td>
-<td>列表循环模式： <code>all</code> , <code>one</code> , <code>none</code></td>
+<td>order</td>
+<td>‘list’</td>
+<td>音频循环顺序, 可选值: ‘list’, ‘random’</td>
 </tr>
 <tr>
-<td align="center">order</td>
-<td><code>list</code></td>
-<td>列表播放模式： <code>list</code> , <code>random</code></td>
+<td>preload</td>
+<td>‘auto’</td>
+<td>预加载，可选值: ‘none’, ‘metadata’, ‘auto’</td>
 </tr>
 <tr>
-<td align="center">volume</td>
+<td>volume</td>
 <td>0.7</td>
-<td>播放器音量</td>
+<td>默认音量，请注意播放器会记忆用户设置，用户手动设置音量后默认音量即失效</td>
 </tr>
 <tr>
-<td align="center">lrctype</td>
+<td>audio</td>
+<td>-</td>
+<td>音频信息, 应该是一个对象或对象数组</td>
+</tr>
+<tr>
+<td>audio.name</td>
+<td>-</td>
+<td>音频名称</td>
+</tr>
+<tr>
+<td>audio.artist</td>
+<td>-</td>
+<td>音频艺术家</td>
+</tr>
+<tr>
+<td>audio.url</td>
+<td>-</td>
+<td>音频链接</td>
+</tr>
+<tr>
+<td>audio.cover</td>
+<td>-</td>
+<td>音频封面</td>
+</tr>
+<tr>
+<td>audio.lrc</td>
+<td>-</td>
+<td><a target="_blank" rel="noopener" href="https://aplayer.js.org/#/home?id=lrc">详情</a></td>
+</tr>
+<tr>
+<td>audio.theme</td>
+<td>-</td>
+<td>切换到此音频时的主题色，比上面的 theme 优先级高</td>
+</tr>
+<tr>
+<td>audio.type</td>
+<td>‘auto’</td>
+<td>可选值: ‘auto’, ‘hls’, ‘normal’ 或其他自定义类型, <a target="_blank" rel="noopener" href="https://aplayer.js.org/#/home?id=mse-support">详情</a></td>
+</tr>
+<tr>
+<td>customAudioType</td>
+<td>-</td>
+<td>自定义类型，<a target="_blank" rel="noopener" href="https://aplayer.js.org/#/home?id=mse-support">详情</a></td>
+</tr>
+<tr>
+<td>mutex</td>
+<td>true</td>
+<td>互斥，阻止多个播放器同时播放，当前播放器播放时暂停其他播放器</td>
+</tr>
+<tr>
+<td>lrcType</td>
 <td>0</td>
-<td>歌词格式类型</td>
+<td><a target="_blank" rel="noopener" href="https://aplayer.js.org/#/home?id=lrc">详情</a></td>
 </tr>
 <tr>
-<td align="center">listfolded</td>
-<td><code>false</code></td>
-<td>指定音乐播放列表是否折叠</td>
+<td>listFolded</td>
+<td>false</td>
+<td>列表默认折叠</td>
 </tr>
 <tr>
-<td align="center">storagename</td>
-<td><code>metingjs</code></td>
-<td>LocalStorage 中存储播放器设定的键名</td>
+<td>listMaxHeight</td>
+<td>-</td>
+<td>列表最大高度</td>
 </tr>
 <tr>
-<td align="center">autoplay</td>
-<td><code>true</code></td>
-<td>自动播放，移动端浏览器暂时不支持此功能</td>
-</tr>
-<tr>
-<td align="center">mutex</td>
-<td><code>true</code></td>
-<td>该选项开启时，如果同页面有其他 aplayer 播放，该播放器会暂停</td>
-</tr>
-<tr>
-<td align="center">listmaxheight</td>
-<td><code>340px</code></td>
-<td>播放列表的最大长度</td>
+<td>storageName</td>
+<td>‘aplayer-setting’</td>
+<td>存储播放器设置的 localStorage key</td>
 </tr>
 </tbody></table>
 <h2 id="B站追番列表"><a href="#B站追番列表" class="headerlink" title="B站追番列表"></a>B站追番列表</h2><p>安装</p>
@@ -784,6 +824,7 @@
         </div>
           
   
+  background: url("https://fmphoto.oss-cn-chengdu.aliyuncs.com/Photo/229ec4cd61ee8d27c3218a0bc554a18041e74662.jpg");
   <div class="toggle sidebar-toggle">
     <span class="toggle-line toggle-line-first"></span>
     <span class="toggle-line toggle-line-middle"></span>
@@ -791,8 +832,8 @@
   </div>
 
   <aside class="sidebar">
+    
     <div class="sidebar-inner">
-
 
       <ul class="sidebar-nav motion-element">
         <li class="sidebar-nav-toc">
@@ -802,12 +843,14 @@
           站点概览
         </li>
       </ul>
+      
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
           <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Bolg%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE"><span class="nav-number">1.</span> <span class="nav-text">Bolg环境配置</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Next%E6%8F%92%E4%BB%B6%E9%85%8D%E7%BD%AE"><span class="nav-number">2.</span> <span class="nav-text">Next插件配置</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%87%E7%AB%A0%E5%AD%97%E6%95%B0%E7%BB%9F%E8%AE%A1"><span class="nav-number">2.1.</span> <span class="nav-text">文章字数统计</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#RSS%E6%8F%92%E4%BB%B6"><span class="nav-number">2.2.</span> <span class="nav-text">RSS插件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9C%AC%E5%9C%B0%E6%90%9C%E7%B4%A2"><span class="nav-number">2.3.</span> <span class="nav-text">本地搜索</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9B%BE%E7%89%87%E5%8F%AF%E7%82%B9%E5%87%BB%E6%94%BE%E5%A4%A7"><span class="nav-number">2.4.</span> <span class="nav-text">图片可点击放大</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8D%9A%E6%96%87%E7%BD%AE%E9%A1%B6"><span class="nav-number">2.5.</span> <span class="nav-text">博文置顶</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AE%BE%E7%BD%AE%E7%BD%AE%E9%A1%B6%E6%A0%87%E5%BF%97"><span class="nav-number">2.5.1.</span> <span class="nav-text">设置置顶标志</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9C%A8%E6%96%87%E7%AB%A0%E4%B8%AD%E6%B7%BB%E5%8A%A0top"><span class="nav-number">2.5.2.</span> <span class="nav-text">在文章中添加top</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#hexo%E4%B8%8A%E7%BB%99%E6%96%87%E7%AB%A0%E5%8A%A0%E5%AF%86"><span class="nav-number">2.6.</span> <span class="nav-text">hexo上给文章加密</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#hexo%E4%B8%8A%E7%BB%99%E6%96%87%E7%AB%A0%E6%B7%BB%E5%8A%A0%E8%B1%86%E7%93%A3%E5%8D%A1%E7%89%87"><span class="nav-number">2.7.</span> <span class="nav-text">hexo上给文章添加豆瓣卡片</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8F%92%E5%85%A5%E9%9F%B3%E4%B9%90"><span class="nav-number">2.8.</span> <span class="nav-text">插入音乐</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#B%E7%AB%99%E8%BF%BD%E7%95%AA%E5%88%97%E8%A1%A8"><span class="nav-number">2.9.</span> <span class="nav-text">B站追番列表</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#NexT%E4%B8%BB%E9%A2%98%E7%BE%8E%E5%8C%96"><span class="nav-number">3.</span> <span class="nav-text">NexT主题美化</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AE%BE%E7%BD%AE%E5%BB%BA%E7%AB%99%E6%97%B6%E9%97%B4"><span class="nav-number">3.1.</span> <span class="nav-text">设置建站时间</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%87%E7%AB%A0%E6%9C%AB%E5%B0%BE%E6%B7%BB%E5%8A%A0%E7%89%88%E6%9D%83%E8%AF%B4%E6%98%8E"><span class="nav-number">3.2.</span> <span class="nav-text">文章末尾添加版权说明</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AE%BE%E7%BD%AE%E5%A4%B4%E5%83%8F"><span class="nav-number">3.3.</span> <span class="nav-text">设置头像</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BD%91%E7%AB%99%E5%9B%BE%E6%A0%87%E8%AE%BE%E7%BD%AE"><span class="nav-number">3.4.</span> <span class="nav-text">网站图标设置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AE%BE%E7%BD%AE%E5%8A%A8%E6%80%81%E8%83%8C%E6%99%AF"><span class="nav-number">3.5.</span> <span class="nav-text">设置动态背景</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AE%BE%E7%BD%AE%E8%83%8C%E6%99%AF%E5%9B%BE%E7%89%87"><span class="nav-number">3.6.</span> <span class="nav-text">设置背景图片</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%BB%E9%A1%B5%E6%96%87%E7%AB%A0%E6%B7%BB%E5%8A%A0%E9%98%B4%E5%BD%B1%E6%95%88%E6%9E%9C"><span class="nav-number">3.7.</span> <span class="nav-text">主页文章添加阴影效果</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AE%BE%E7%BD%AE%E9%A2%84%E8%A7%88%E6%91%98%E8%A6%81"><span class="nav-number">3.8.</span> <span class="nav-text">设置预览摘要</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AE%BE%E7%BD%AE%E4%BE%A7%E8%BE%B9%E6%A0%8F%E6%98%BE%E7%A4%BA%E6%95%88%E6%9E%9C"><span class="nav-number">3.9.</span> <span class="nav-text">设置侧边栏显示效果</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BE%A7%E8%BE%B9%E6%A0%8F%E6%8E%A8%E8%8D%90%E9%98%85%E8%AF%BB"><span class="nav-number">3.10.</span> <span class="nav-text">侧边栏推荐阅读</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B7%BB%E5%8A%A0%E7%A4%BE%E4%BA%A4%E9%93%BE%E6%8E%A5"><span class="nav-number">3.11.</span> <span class="nav-text">添加社交链接</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AE%BE%E7%BD%AE%E5%8D%9A%E6%96%87%E5%86%85%E9%93%BE%E6%8E%A5%E4%B8%BA%E8%93%9D%E8%89%B2"><span class="nav-number">3.12.</span> <span class="nav-text">设置博文内链接为蓝色</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AE%BE%E7%BD%AE%E6%96%87%E7%AB%A0%E6%9C%AB%E5%B0%BE%E2%80%9D%E6%9C%AC%E6%96%87%E7%BB%93%E6%9D%9F%E2%80%9D%E6%A0%87%E8%AE%B0"><span class="nav-number">3.13.</span> <span class="nav-text">设置文章末尾”本文结束”标记</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B7%BB%E5%8A%A0%E8%AE%BF%E9%97%AE%E9%87%8F%E7%BB%9F%E8%AE%A1"><span class="nav-number">3.14.</span> <span class="nav-text">添加访问量统计</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81%E5%9D%97%E6%A0%B7%E5%BC%8F%E8%87%AA%E5%AE%9A%E4%B9%89"><span class="nav-number">3.15.</span> <span class="nav-text">代码块样式自定义</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%94%AF%E6%8C%81mathjax%E5%85%AC%E5%BC%8F"><span class="nav-number">3.16.</span> <span class="nav-text">支持mathjax公式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%85%BE%E8%AE%AF%E5%85%AC%E7%9B%8A404%E9%A1%B5%E9%9D%A2"><span class="nav-number">3.17.</span> <span class="nav-text">腾讯公益404页面</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BF%AE%E6%94%B9%E6%96%87%E7%AB%A0%E5%BA%95%E9%83%A8-%E5%8F%B7tag%E6%A0%87%E7%AD%BE"><span class="nav-number">3.18.</span> <span class="nav-text">修改文章底部#号tag标签</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BB%99%E6%96%87%E7%AB%A0%E6%B7%BB%E5%8A%A0%E6%9B%B4%E6%96%B0%E6%97%B6%E9%97%B4"><span class="nav-number">3.19.</span> <span class="nav-text">给文章添加更新时间</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B7%BB%E5%8A%A0%E7%AA%81%E7%A0%B4%E5%AE%B9%E5%99%A8%E5%AE%BD%E5%BA%A6%E9%99%90%E5%88%B6%E7%9A%84%E5%9B%BE%E7%89%87"><span class="nav-number">3.20.</span> <span class="nav-text">添加突破容器宽度限制的图片</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B7%BB%E5%8A%A0%E6%8A%98%E5%8F%A0%E9%A1%B9"><span class="nav-number">3.21.</span> <span class="nav-text">添加折叠项</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
+      
 
       <div class="site-overview-wrap sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -823,7 +866,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">9</span>
+          <span class="site-state-item-count">12</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -832,7 +875,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">13</span>
+        <span class="site-state-item-count">15</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -864,15 +907,18 @@
         <li class="links-of-blogroll-item">
           <a href="https://space.bilibili.com/290451282" title="物语拜年祭" rel="noopener" target="_blank">物语拜年祭</a>
         </li>
+       <link rel="stylesheet" href="/dist/APlayer.min.css">
+<div id="aplayer"></div>
+<script type="text/javascript" src="/dist/APlayer.min.js"></script>
+<script type="text/javascript" src="/dist/music.js"></script>
     </ul>
   </div>
 
 
 
       </div>
-
-
-
+    
+    
 
     </div>
   </aside>
@@ -900,7 +946,7 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">36k</span>
+    <span title="站点总字数">48k</span>
 </div>
 <!--
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动

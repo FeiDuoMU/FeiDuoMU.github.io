@@ -1166,7 +1166,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #625887;
+  background: #c6c34e;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -2366,6 +2366,9 @@ embed {
 }
 .sub-menu .menu-item {
   display: inline-block;
+}
+ {
+  background: url("https://fmphoto.oss-cn-chengdu.aliyuncs.com/Photo/229ec4cd61ee8d27c3218a0bc554a18041e74662.jpg");
 }
 .sidebar {
   right: -320px;
